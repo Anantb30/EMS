@@ -1,12 +1,15 @@
-# Employee Management System (EMS)
+# Roster — Employee Management System
 
-A full-stack Employee Management System built with **React (Vite)** on the frontend and **Node.js + Express** on the backend. Add, search, filter, update, and remove employee records through a clean, responsive dashboard with light/dark themes.
+A full-stack Employee Management System built with **React (Vite)** on the frontend and **Node.js + Express** on the backend. Add, search, filter, update, and remove employee records through a personnel-ledger styled dashboard with light/dark themes.
 
-**Live Demo:** [ems-rust-sigma.vercel.app](https://ems-rust-sigma.vercel.app/)
+**Live demo:** [ems-rho-sooty.vercel.app](https://ems-rho-sooty.vercel.app/)
+**Backend API:** [ems-xl1c.onrender.com](https://ems-xl1c.onrender.com/)
 
 <!-- Optional: add a screenshot of the dashboard here once you have one
-![EMS Dashboard](./screenshot.png)
+![Roster Dashboard](./screenshot.png)
 -->
+
+> **Note:** the backend free tier on Render spins down after ~15 minutes of inactivity. The first request after idle time can take 30–50 seconds to wake it back up — that's normal, not a bug.
 
 ---
 
@@ -17,7 +20,7 @@ A full-stack Employee Management System built with **React (Vite)** on the front
 - 🗂️ **Department filter** dropdown, generated dynamically from existing records
 - 📊 **Dashboard stats** — total headcount, department count, monthly payroll, and average salary at a glance
 - 🌗 **Light / dark theme** toggle with persistent CSS variable theming
-- 🎨 **Color-coded avatars & department tags** for quick visual scanning
+- 🎨 **Color-coded avatars, department tags & ID stamps** for quick visual scanning
 - 📱 **Fully responsive** layout, from mobile to desktop
 - ⚡ **Fast dev experience** powered by Vite
 
@@ -30,7 +33,7 @@ A full-stack Employee Management System built with **React (Vite)** on the front
 | Frontend    | React 19, Vite, lucide-react (icons)         |
 | Backend     | Node.js, Express 5                           |
 | Styling     | Plain CSS with custom properties (theming)   |
-| Deployment  | Vercel (frontend)                            |
+| Deployment  | Vercel (frontend) · Render (backend)         |
 
 ---
 
@@ -38,6 +41,7 @@ A full-stack Employee Management System built with **React (Vite)** on the front
 
 ```text
 EMS/
+├── render.yaml                     # Render blueprint config
 ├── Ems-backend/
 │   ├── controllers/
 │   │   └── employeeController.js   # CRUD logic
@@ -70,7 +74,7 @@ EMS/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Dagar214/EMS.git
+git clone https://github.com/Anantb30/EMS.git
 cd EMS
 ```
 
@@ -107,14 +111,14 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/employees
 To point the frontend at a deployed backend, create a `.env` file inside `Ems-frontend/`:
 
 ```env
-VITE_API_URL=https://your-deployed-backend-url.com/employees
+VITE_API_URL=https://ems-xl1c.onrender.com/employees
 ```
 
 ---
 
 ## 📡 API Reference
 
-Base URL: `http://localhost:5000/employees`
+Base URL: `https://ems-xl1c.onrender.com/employees`
 
 | Method | Endpoint  | Description            | Body                                         |
 | ------ | --------- | ----------------------- | --------------------------------------------- |
@@ -124,7 +128,16 @@ Base URL: `http://localhost:5000/employees`
 | PUT    | `/:id`    | Update an employee       | Any subset of `{ name, department, salary }`   |
 | DELETE | `/:id`    | Delete an employee       | —                                              |
 
-> Note: employee data currently lives in memory (`data/employee.js`) and resets whenever the backend restarts. Swap this out for a real database (MongoDB, PostgreSQL, etc.) for persistent storage in production.
+> Note: employee data currently lives in memory (`data/employee.js`) and resets whenever the backend restarts or redeploys. Swap this out for a real database (MongoDB, PostgreSQL, etc.) for persistent storage in production.
+
+---
+
+## ☁️ Deployment
+
+This repo deploys as two separate services:
+
+- **Backend → Render**, configured via `render.yaml` at the repo root (root directory `Ems-backend`, `npm install` build, `npm start` run). Set the `FRONTEND_URL` environment variable to your Vercel URL so CORS allows the live frontend to call the API.
+- **Frontend → Vercel**, root directory `Ems-frontend`. Set the `VITE_API_URL` environment variable to `<your-render-url>/employees`.
 
 ---
 
@@ -148,7 +161,5 @@ This project is licensed under the ISC License.
 
 ## 👤 Author
 
-**Dev**
-GitHub: [@Dagar214](https://github.com/Dagar214)
-
-
+**Anant Bhardwaj**
+GitHub: [@Anantb30](https://github.com/Anantb30)
