@@ -1,27 +1,30 @@
 {
-  "name": "ems",
+  "name": "ems-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MohitGoel109/EMS.git"
+    "url": "git+https://github.com/Anantb30/EMS.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/MohitGoel109/EMS/issues"
+    "url": "https://github.com/Anantb30/EMS/issues"
   },
-  "homepage": "https://github.com/MohitGoel109/EMS#readme",
+  "homepage": "https://github.com/Anantb30/EMS#readme",
   "dependencies": {
     "cors": "^2.8.6",
-    "express": "^5.2.1",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.14"
   }
 }
