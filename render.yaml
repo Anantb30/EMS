@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ems-backend
+    runtime: node
+    rootDir: Ems-backend
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: FRONTEND_URL
+        sync: false
