@@ -1,8 +1,12 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
 const employeeRoutes = require("./routes/employeeRoutes");
 const loggerMiddleware = require("./middleware/loggerMiddleware");
+const connectDB = require("./config/db");
+
+connectDB();
 
 // Middleware
 

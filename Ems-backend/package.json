@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "seed": "node seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,7 +23,9 @@
   "homepage": "https://github.com/Anantb30/EMS#readme",
   "dependencies": {
     "cors": "^2.8.6",
-    "express": "^5.2.1"
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.7.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
